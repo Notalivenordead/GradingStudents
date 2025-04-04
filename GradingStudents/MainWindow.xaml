@@ -17,6 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -29,30 +30,38 @@
 
         <!-- Модуль 1 -->
         <TextBlock Text="Модуль 1 (макс. 22):" FontSize="14" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,0"/>
-        <TextBox x:Name="Module1ScoreInput" Grid.Row="1" Grid.Column="1" Width="200" Height="30" Margin="0,10,0,0" />
+        <TextBox x:Name="Module1ScoreInput" Grid.Row="1" Grid.Column="1" Width="200" Height="30" Margin="0,10,0,0" 
+                 ToolTip="Введите целое число баллов (максимум 22)."/>
 
         <!-- Модуль 2 -->
         <TextBlock Text="Модуль 2 (макс. 38):" FontSize="14" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,0"/>
-        <TextBox x:Name="Module2ScoreInput" Grid.Row="2" Grid.Column="1" Width="200" Height="30" Margin="0,10,0,0" />
+        <TextBox x:Name="Module2ScoreInput" Grid.Row="2" Grid.Column="1" Width="200" Height="30" Margin="0,10,0,0" 
+                 ToolTip="Введите целое число баллов (максимум 38)."/>
 
         <!-- Модуль 3 -->
         <TextBlock Text="Модуль 3 (макс. 20):" FontSize="14" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,0"/>
-        <TextBox x:Name="Module3ScoreInput" Grid.Row="3" Grid.Column="1" Width="200" Height="30" Margin="0,10,0,0" />
+        <TextBox x:Name="Module3ScoreInput" Grid.Row="3" Grid.Column="1" Width="200" Height="30" Margin="0,10,0,0" 
+                 ToolTip="Введите целое число баллов (максимум 20)."/>
 
         <!-- Кнопка расчета -->
         <Button Content="Рассчитать" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Width="150" Height="30" Margin="0,10,0,0" 
                 Click="Calculate_Click" ToolTip="Нажмите, чтобы рассчитать общую сумму баллов и оценку."/>
 
         <!-- Отображение суммы баллов -->
-        <TextBlock Text="Сумма баллов:" FontSize="14" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,0"/>
-        <TextBlock x:Name="TotalScoreLabel" Text="0" FontSize="16" Foreground="Blue" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="0,10,0,0"/>
+        <TextBlock Text="Сумма баллов:" FontSize="14" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,0" 
+                   ToolTip="Общая сумма баллов за все модули."/>
+        <TextBlock x:Name="TotalScoreLabel" Text="0" FontSize="16" Foreground="Blue" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="0,10,0,0" 
+                   ToolTip="Здесь отображается общая сумма баллов."/>
 
         <!-- Отображение оценки -->
-        <TextBlock Text="Оценка:" FontSize="14" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,0"/>
-        <TextBlock x:Name="GradeLabel" Text="-" FontSize="16" Foreground="Green" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Margin="0,10,0,0"/>
+        <TextBlock Text="Оценка:" FontSize="14" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,0" 
+                   ToolTip="Оценка по 5-балльной шкале."/>
+        <TextBlock x:Name="GradeLabel" Text="-" FontSize="16" Foreground="Green" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Margin="0,10,0,0" 
+                   ToolTip="Здесь отображается оценка."/>
 
         <!-- Сообщение об ошибке -->
-        <TextBlock x:Name="ErrorMessage" Foreground="Red" FontSize="12" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" Visibility="Collapsed"/>
+        <TextBlock x:Name="ErrorMessage" Foreground="Red" FontSize="12" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,10,0,0" Visibility="Collapsed" 
+                   ToolTip="Здесь отображаются сообщения об ошибках."/>
 
         <!-- Дополнительная информация -->
         <TextBlock Text="Шкала оценок: 56-80 = 5, 32-55 = 4, 16-31 = 3, 0-15 = 2" 

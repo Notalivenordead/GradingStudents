@@ -116,5 +116,26 @@ namespace UT4App
             Assert.AreEqual("", Grade);
             Assert.AreEqual("Ошибка: Баллы должны быть в допустимых пределах (Модуль 1: 0-22, Модуль 2: 0-38, Модуль 3: 0-20).", ErrorMessage);
         }
+
+        [TestMethod]
+        public void Test_InvalidScores_NonNumericInput()
+        {
+            // Arrange
+            string module1Score = "abc"; // Некорректный ввод (текст)
+            string module2Score = "xyz";
+            string module3Score = "123";
+
+            // Act
+            var result = _calculator.Calculate(
+                int.TryParse(module1Score, out int m1) ? m1 : -1,
+                int.TryParse(module2Score, out int m2) ? m2 : -1,
+                int.TryParse(module3Score, out int m3) ? m3 : -1
+            );
+
+            // Assert
+            Assert.AreEqual(0, result.TotalScore);
+            Assert.AreEqual("", result.Grade);
+            Assert.AreEqual("Ошибка: Баллы должны быть в допустимых пределах (Модуль 1: 0-22, Модуль 2: 0-38, Модуль 3: 0-20).", result.ErrorMessage);
+        }
     }
 }
